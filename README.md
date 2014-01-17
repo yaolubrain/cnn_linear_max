@@ -8,5 +8,5 @@ The data can be downloaded in http://ai.stanford.edu/~amaas/data/data.zip
 
 The data loading functions can be downloaded in http://ufldl.stanford.edu/wiki/index.php/Using_the_MNIST_Dataset
 
-Above 98% classification accuracy can be achieved for 50 epochs.
+About 98% classification accuracy for 50 epochs of all training data.
 
