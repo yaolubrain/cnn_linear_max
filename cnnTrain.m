@@ -60,7 +60,6 @@ for e = 1:epochNum
         o1PoolIdx = zeros(outputDim1^2,filterNum1,mbSize);
         for i = 1:mbSize
             for j = 1:filterNum1
-%                 o1Pooled(:,:,i,j) = meanPool(o1(:,:,i,j),poolDim1);    
                 [o1Pooled(:,:,j,i) o1PoolIdx(:,j,i)] = MaxPooling(o1(:,:,j,i),[poolDim1 poolDim1]);
             end
         end        
@@ -75,7 +74,6 @@ for e = 1:epochNum
         o2PoolIdx = zeros(outputDim2^2,filterNum2,mbSize);
         for i = 1:mbSize 
             for j = 1:filterNum2
-%                 o2Pooled(:,:,i,j) = meanPool(o2(:,:,i,j),poolDim2);
                 [o2Pooled(:,:,j,i) o2PoolIdx(:,j,i)] = MaxPooling(o2(:,:,j,i),[poolDim2 poolDim2]);
             end
         end
@@ -90,7 +88,6 @@ for e = 1:epochNum
         delta_c2 = zeros(convDim2,convDim2,filterNum2,mbSize);
         for i = 1:mbSize
             for j = 1:filterNum2
-%                 delta_c2(:,:,j,i) = upsampleMean(delta_s2(:,:,j,i),poolDim2);
                 delta_c2(:,:,j,i) = upsampleMax(delta_s2(:,:,j,i),o2PoolIdx(:,j,i),poolDim2);
             end
         end
@@ -103,7 +100,6 @@ for e = 1:epochNum
         delta_c1 = zeros(convDim1,convDim1,filterNum1,mbSize);
         for i = 1:mbSize
             for j = 1:filterNum1      
-%                 delta_c1(:,:,j,i) = upsampleMean(delta_s1(:,:,j,i),poolDim1);
                 delta_c1(:,:,j,i) = upsampleMax(delta_s1(:,:,j,i),o1PoolIdx(:,j,i),poolDim1);
             end
         end
