@@ -2,7 +2,10 @@ A simple convolutional neural network with linear neurons.
 
 Structure: input->convolution->max pooling->convolution->max pooling->fully connected.
 
-Compile the max pooling function in C++ first by typing 'mex MaxPooling.cpp'.
+Compile the max pooling function in C++ first by typing '
+```
+mex MaxPooling.cpp
+```
 
 The data can be downloaded in http://ai.stanford.edu/~amaas/data/data.zip
 
